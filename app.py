@@ -11,6 +11,8 @@ def index():
 @APP.get("/metricas")
 def index():
     d = {
+        "Nome": "",
+        "Proccess ID": "",
         "Memória usada": data.get_ram_usage,
         "CPU": data.get_cpu_usage
     }
