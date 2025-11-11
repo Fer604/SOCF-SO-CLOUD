@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, jsonify
+import data
 
 APP = Flask(__name__)
 
@@ -7,9 +8,22 @@ APP = Flask(__name__)
 def index():
     return "<h1>cole familia</h1>"
 
+@APP.get("/metricas")
+def index():
+    d = {
+        "Memória usada": data.get_ram_usage,
+        "CPU": data.get_cpu_usage
+    }
+    return jsonify(d)
+
 @APP.get("/info")
 def info():
-    return "Integrantes: \nAndré Esteves Arantes \nFernando Aschwanden \nGustavo Jansen"
+    names = data.get_names()
+
+    for name in names:
+        return {
+            "Nome": name
+        }
 
 if __name__ == '__main__':
     APP.run(host='0.0.0.0',port=80)
