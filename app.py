@@ -31,7 +31,7 @@ def metricas():
         "CPU": str(data.get_cpu_usage()),
         "SO": data.get_os()
     }
-    res = jsonify(r)
+    # res = jsonify(r)
 
     return render_template_string("""
         <!DOCTYPE html>
@@ -48,7 +48,7 @@ def metricas():
             <p>{{ data }}</p>
         </body>
         </html>
-        """, data = res)
+        """, data = r)
 
 @APP.get("/info")
 def info():
@@ -64,10 +64,14 @@ def info():
         </head>
         <body>
             <h1>Nomes:</h1>
-            <p>{{ name }}</p>
+            <ul>
+                {% for name in names %}
+                    <li>{{ name }}</li>
+                {% endfor %}
+            </ul>
         </body>
         </html>
-        """, name = data.get_names())
+        """, names = data.get_names())
 
 if __name__ == '__main__':
     APP.run(host='0.0.0.0',port=80)
