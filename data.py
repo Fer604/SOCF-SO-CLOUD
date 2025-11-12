@@ -1,7 +1,10 @@
-import psutil, platform, json
+import psutil, platform, os
 
 def get_os():
     return platform.platform()
+
+def get_PID():
+    return os.getpid()
 
 def get_cpu_usage():
     return psutil.cpu_percent(interval=1)
@@ -14,4 +17,3 @@ def get_ram_usage():
 
 def get_names():
     return ["André Esteves Arantes", "Fernando Aschwanden", "Gustavo Jansen"]
-    
