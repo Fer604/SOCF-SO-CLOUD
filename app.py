@@ -26,10 +26,10 @@ def index():
 def metricas():
     res = {
         "Nomes": data.get_names(),  
-        "Proccess ID": str(data.get_PID()),
-        "Memória usada": str(data.get_ram_usage()),
-        "CPU": str(data.get_cpu_usage()),
-        "SO": data.get_os()
+        "\nProccess ID": str(data.get_PID()),
+        "\nMemória usada": str(data.get_ram_usage()),
+        "\nCPU": str(data.get_cpu_usage()),
+        "\nSO": data.get_os()
     }
 
     return render_template_string("""
