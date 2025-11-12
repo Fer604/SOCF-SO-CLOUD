@@ -5,7 +5,22 @@ APP = Flask(__name__)
 
 @APP.get("/")
 def index():
-    return "<h1>cole familia</h1>"
+    return render_template_string("""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Bem vindo!</title>
+            <style>
+                body { font-family: sans-serif; margin: 2em; }
+                h1 { color: #333; }
+            </style>
+        </head>
+        <body>
+            <a href="/metricas">Métricas</a>
+            <a href="/info">Info</a>
+        </body>
+        </html>
+        """)
 
 @APP.get("/metricas")
 def metricas():
