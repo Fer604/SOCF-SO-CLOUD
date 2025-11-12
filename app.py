@@ -24,14 +24,13 @@ def index():
 
 @APP.get("/metricas")
 def metricas():
-    r = {
+    res = {
         "Nomes": data.get_names(),  
         "Proccess ID": str(data.get_PID()),
         "Memória usada": str(data.get_ram_usage()),
         "CPU": str(data.get_cpu_usage()),
         "SO": data.get_os()
     }
-    # res = jsonify(r)
 
     return render_template_string("""
         <!DOCTYPE html>
@@ -48,7 +47,7 @@ def metricas():
             <p>{{ data }}</p>
         </body>
         </html>
-        """, data = r)
+        """, data = jsonify({res}))
 
 @APP.get("/info")
 def info():
