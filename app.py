@@ -26,33 +26,12 @@ def index():
 def metricas():
     res = {
         "Nomes": data.get_names(),  
-        "Process ID": str(data.get_PID()),
-        "Memória usada (MB)": f"{data.get_ram_usage():.2f}",
-        "CPU (%)": str(data.get_cpu_usage()),
+        "Process ID": data.get_PID(),
+        "Memória usada (MB)": round(data.get_ram_usage(), 2),
+        "CPU (%)": data.get_cpu_usage(),
         "SO": data.get_os()
     }
-
-    return render_template_string("""
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Métricas</title>
-            <style>
-                body { font-family: sans-serif; margin: 2em; }
-                h1 { color: #333; }
-                ul { line-height: 1.6; }
-            </style>
-        </head>
-        <body>
-            <h1>Métricas do sistema</h1>
-            <ul>
-                {% for chave, valor in data.items() %}
-                    <li><b>{{ chave }}</b>: {{ valor }}</li>
-                {% endfor %}
-            </ul>
-        </body>
-        </html>
-        """, data=res)
+    return jsonify(res)
 
 
 @APP.get("/info")
