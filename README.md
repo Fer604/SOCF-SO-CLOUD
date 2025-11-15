@@ -4,11 +4,11 @@
 
 3. Crie um servidor web em Flask (Python) que exiba veis, ao ser acessado, as seguintes
 informações do sistema:
-(a) O nome completo dos integrantes da equipe
-(b) O PID (Process ID) do processo que executa o servidor
-(c) A quantidade de memória utilizada pelo processo (em MB)
-(d) O uso de CPU (%)
-(e) O sistema operacional detectado (por exemplo: Linux, Ubuntu, etc.)
+(a) O nome completo dos integrantes da equipe 🟢
+(b) O PID (Process ID) do processo que executa o servidor 🟢
+(c) A quantidade de memória utilizada pelo processo (em MB) 🟢
+(d) O uso de CPU (%) 🟢
+(e) O sistema operacional detectado (por exemplo: Linux, Ubuntu, etc.) 🟢
 (f) Dica: utilize os módulos os, platform e psutil.
 Exemplo de saída:
 Nome: Ana Silva e João das Couves
@@ -18,9 +18,9 @@ CPU: 3.4%
 Sistema Operacional: Linux (Ubuntu)
 
 4. Crie duas rotas: /info e /metricas, onde:
-• /info: Mostra o nome dos integrantes da equipe
+• /info: Mostra o nome dos integrantes da equipe 🟢
 • /metricas: Retorna o conteúdo, no formato JSON, as informações solicitadas no
-Item 3
+Item 3 🟢
 
 5. Criação do Web Service
 Crie um novo Web Service no https://render.com/ e conecte ao repositório do GitHub.
